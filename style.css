@@ -4,90 +4,149 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 body {
-  background-color: #025bee;
+  background-color: #0d8676;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
+
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
 .wrapper {
   width: min(90%, 800px);
-  position: absolute;
-  transform: translateX(-50%);
-  top: 1em;
-  left: 50%;
   background-color: #ffffff;
   padding: 2em 3em;
-  border-radius: 0.5em;
+  border-radius: 1em; /* Increased border-radius */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
+
+.dark-mode .wrapper {
+  background-color: #333;
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1em;
-  border-radius: 7px;
+  border-radius: 10px; /* Increased border-radius */
 }
+
 .container .image-container,
 .container .preview-container {
   width: 100%;
+  overflow: hidden;
 }
+
 input[type="file"] {
   display: none;
 }
+
 label {
   display: block;
-  position: relative;
-  background-color: #025bee;
+  background-color: #05968a;
   color: #ffffff;
   font-size: 16px;
   text-align: center;
   width: 250px;
   padding: 16px 0;
-  border-radius: 0.3em;
+  border-radius: 0.5em;
   margin: 16px auto;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+label:hover {
+  background-color: #029f92;
+}
+
 img {
   display: block;
-  /* Important for cropper js*/
   max-width: 100%;
 }
-.image-container {
-  width: 60%;
-  margin: 0 auto;
-}
+
 .options {
   display: flex;
   justify-content: center;
   gap: 1em;
+  flex-wrap: wrap;
 }
+
 input[type="number"] {
   width: 100px;
   padding: 16px 5px;
   border-radius: 0.3em;
   border: 2px solid #000000;
+  transition: border-color 0.3s ease;
 }
+
+input[type="number"]:focus {
+  border-color: #02eeb3;
+}
+
 button {
   padding: 1em;
-  border-radius: 0.3em;
-  border: 2px solid #025bee;
+  border-radius: 0.5em; /* Increased border-radius */
+  border: 2px solid #5da895;
   background-color: #ffffff;
-  color: #025bee;
+  color: #009e84;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
 }
+
+button:hover {
+  background-color: #cef5ee;
+  color: #ffffff;
+}
+
+.dark-mode button {
+  background-color: #444;
+  color: #ffffff;
+}
+
 .btns {
   display: flex;
   justify-content: center;
   gap: 1em;
   margin-top: 1em;
 }
+
 .btns button {
   font-size: 1em;
 }
+
 .btns a {
-  border: 2px solid #025bee;
-  background-color: #025bee;
+  border: 2px solid #026d52;
+  background-color: #5da895;
   color: #ffffff;
   text-decoration: none;
   padding: 1em;
   font-size: 1em;
-  border-radius: 0.3em;
+  border-radius: 0.5em;
+  transition: background-color 0.3s ease;
 }
+
+.btns a:hover {
+  background-color: #5a857b;
+}
+
 .hide {
+  display: none;
+}
+
+#loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
   display: none;
 }
